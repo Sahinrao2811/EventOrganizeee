@@ -1,10 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .container{
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* height: 35 */
+    width: 80%;
+    margin: 0 auto;
+
     
+}
+#dashboardCont{
+    margin: 0 auto;
 }
 .login_label{
     margin-bottom: 10px;
@@ -19,13 +25,46 @@
    margin-bottom: 10px;
 }
 #header {
-    position: absolute;
+    /* position: absolute; */
     height: 50px;
-    width: 300px;
+    /* width: 80%; */
     border: 1px solid;
     top:25px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     padding: 5px;
+}
+#eventContainer{
+    /* position: relative; */
+    width: 80%;
+    /* height: 30px; */
+    border: 1px solid;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* padding: 10px; */
+}
+#listevent{
+    height: 100px;
+    border: 1px solid;
+    word-wrap: break-word;
+    margin: 10px;
+    width: 33%;
+    
+}
+#createcontainer {
+    width: 80%;
+    height: 70%;
+    border: 1px solid;
+    text-align: center;
+    padding: 100px;
+
+}
+#commonInput{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
