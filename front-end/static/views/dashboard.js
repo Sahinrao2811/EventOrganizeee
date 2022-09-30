@@ -68,7 +68,7 @@ const dashboard = {
           eventList.appendChild(endtDate);
         });
       });
-      
+    
     return dashboardContainer;
   },
 };
