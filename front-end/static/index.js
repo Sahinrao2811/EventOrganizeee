@@ -1,5 +1,7 @@
 import login from './views/login.js';
 import dashboard from './views/dashboard.js';
+import eventDetail from './views/eventDetail.js';
+
 
 const navigateTo = url => {
   history.pushState(null, null, url);
@@ -8,7 +10,8 @@ const navigateTo = url => {
 const router = async () => {
   const routes = [
     { path: '/', view: login },
-    { path: '/dashboard', view: dashboard }
+    { path: '/dashboard', view: dashboard },
+    { path: '/eventDetail', view : eventDetail}
   ];
 
   const potentioalMatches = routes.map((route) => {

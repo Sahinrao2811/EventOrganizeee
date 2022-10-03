@@ -53,6 +53,7 @@
     word-wrap: break-word;
     margin: 10px;
     width: 33%;
+    cursor: pointer;
     
 }
 #createcontainer {
@@ -61,10 +62,18 @@
     border: 1px solid;
     text-align: center;
     padding: 100px;
+    display: none;
 
 }
 #commonInput{
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+#eventdetailcontainerer{
+    text-align: center;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    
 }
