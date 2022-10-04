@@ -105,7 +105,7 @@ const eventDetail = {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
-      },
+      }
     })
       .then((response) => response.json())
       .then((data) => {
@@ -118,7 +118,12 @@ const eventDetail = {
         capacityDetailResulttag.innerHTML = `${data.capacity}`;
       });
 
+    const updateEventrute = () => {
+      window.location.href = `/updateEvent?perticularEvent=${perticularEventid}`;
+    };
+
+    updatebtn.onclick = updateEventrute;
     return eventDetailContainer;
-  },
+  }
 };
 export default eventDetail;

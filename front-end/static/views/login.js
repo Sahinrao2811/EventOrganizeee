@@ -26,7 +26,7 @@ const login = {
       const token = document.getElementById('inputToken').value;
       console.log(token);
 
-      const url = 'https://www.eventbriteapi.com/v3/users/me/organizations/';
+      const url = `https://www.eventbriteapi.com/v3/users/me/organizations/`;
       fetch(url, {
         method: 'get',
         headers: {

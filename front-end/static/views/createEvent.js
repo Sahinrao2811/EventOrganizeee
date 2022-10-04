@@ -1,64 +1,64 @@
 const createEvent = {
   gethtml: function () {
     const createEventFun = () => {
-
       const token = localStorage.getItem("token");
       const queryString = window.location.search;
       console.log(queryString);
+      // const usrid = `1169399775153`;
+
       const urlParams = new URLSearchParams(queryString);
       const usrid = urlParams.get("useid");
 
- const eventNm = document.getElementById('eventInput').value;
+      const eventNm = document.getElementById("eventInput").value;
 
+      const eventdeccription = document.getElementById("eventdetailinput").value;
 
- const eventdeccription = document.getElementById('eventdetailinput').value;
+      const startdt = document.getElementById("strt").value;
+      // startdt = `2022-10-12T02:00:00Z`;
 
- const startdt = document.getElementById('strt').value;
-//  new Date(startdt).toustring()
- console.log(new Date(startdt).toUTCString());
+      const isoStartDate = new Date(startdt).toISOString().slice(0, -5) + "Z";
+      console.log("srt", isoStartDate);
 
- const enddt = document.getElementById('end').value;
+      const enddt = document.getElementById("end").value;
+      //  enddt = `2022-10-13T02:00:00Z`;
+      const enddateiso = new Date(enddt).toISOString().slice(0, -5) + "Z";
+      console.log("end", enddateiso);
 
- const cpcty = document.getElementById('cpcty').value;
-
+      const cpcty = document.getElementById("cpcty").value;
 
       const body = {
         event: {
           name: {
-            html: `${eventNm}`,
+            html: `${eventNm}`
           },
           description: {
-            html: `${eventdeccription}`,
+            html: `${eventdeccription}`
           },
           start: {
             timezone: "UTC",
-            utc: new Date(startdt)
+            utc: isoStartDate
+            // utc: new Date(startdt).toISOString()
           },
           end: {
             timezone: "UTC",
-            utc: new Date(enddt),
+            utc: enddateiso
+            // utc: new Date(enddt),
           },
-          "currency": "USD",
-          organizer_id: usrid,
-          capacity: cpcty,
-        },
+          currency: "USD",
+          organizer_id: "",
+          capacity: cpcty
+        }
       };
 
-      // const token = localStorage.getItem("token");
-      // const queryString = window.location.search;
-      // console.log(queryString);
-      // const urlParams = new URLSearchParams(queryString);
-      // const usrid = urlParams.get("useid");
       const url = `https://www.eventbriteapi.com/v3/organizations/${usrid}/events/`;
       fetch(url, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify(body)
-        
- 
+        body: JSON.stringify(body)
+
       })
         .then((response) => response.json())
         .then((data) => {
@@ -98,7 +98,7 @@ const createEvent = {
     eventDetailContainer.appendChild(eventDetailTag);
 
     const eventDetailInput = document.createElement("input");
-    eventDetailInput.id = 'eventdetailinput'
+    eventDetailInput.id = "eventdetailinput";
     eventDetailInput.placeholder = "enter event detail";
     eventDetailContainer.appendChild(eventDetailInput);
 
@@ -112,8 +112,8 @@ const createEvent = {
     startDateContainer.appendChild(startDateTag);
 
     const startDateinput = document.createElement("input");
-    startDateinput.type = 'date'
-    startDateinput.id = 'strt';
+    startDateinput.type = "date";
+    startDateinput.id = "strt";
     startDateinput.placeholder = "enter date";
     startDateContainer.appendChild(startDateinput);
 
@@ -127,8 +127,8 @@ const createEvent = {
     endDateContainer.appendChild(endDatetag);
 
     const endDateinput = document.createElement("input");
-    endDateinput.id = 'end';
-    endDateinput.type = 'date';
+    endDateinput.id = "end";
+    endDateinput.type = "date";
     endDateinput.placeholder = "Enter end date";
     endDateContainer.appendChild(endDateinput);
 
@@ -142,7 +142,7 @@ const createEvent = {
     capacityContainer.appendChild(capacitytag);
 
     const capacityinput = document.createElement("input");
-    capacityinput.id = 'cpcty'
+    capacityinput.id = "cpcty";
     capacityinput.placeholder = "capacity";
     capacityContainer.appendChild(capacityinput);
 
@@ -152,12 +152,10 @@ const createEvent = {
     createBtn.appendChild(createBtnName);
     createContainer.appendChild(createBtn);
 
-    //  const createBtnGet = document.getElementById('createbtn');
-    //  createBtnGet.onclick = createEventFun();
     createBtn.onclick = createEventFun;
 
     return createContainer;
-  },
+  }
 };
 
 export default createEvent;

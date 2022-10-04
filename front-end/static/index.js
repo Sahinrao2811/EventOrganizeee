@@ -1,6 +1,7 @@
 import login from './views/login.js';
 import dashboard from './views/dashboard.js';
 import eventDetail from './views/eventDetail.js';
+import updateEvent from './views/updateEvent.js'
 
 
 const navigateTo = url => {
@@ -11,7 +12,8 @@ const router = async () => {
   const routes = [
     { path: '/', view: login },
     { path: '/dashboard', view: dashboard },
-    { path: '/eventDetail', view : eventDetail}
+    { path: '/eventDetail', view : eventDetail},
+    { path: '/updateEvent', view: updateEvent}
   ];
 
   const potentioalMatches = routes.map((route) => {
