@@ -15,15 +15,13 @@ const eventList = {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       }
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         data.events.forEach((element) => {
-
-
           const eventList = document.createElement("div");
           eventList.id = "listevent";
 
@@ -34,12 +32,12 @@ const eventList = {
           eventListContainer.appendChild(eventList);
           const startDate = document.createElement("p");
           const startTxt = document.createTextNode(
-              `start: ${element.start.local.split("T")[0]}`
+            `start: ${element.start.local.split("T")[0]}`
           );
           startDate.appendChild(startTxt);
           const endtDate = document.createElement("p");
           const endtTxt = document.createTextNode(
-              `end: ${element.end.local.split("T")[0]}`
+            `end: ${element.end.local.split("T")[0]}`
           );
           endtDate.appendChild(endtTxt);
 
@@ -47,16 +45,13 @@ const eventList = {
           eventList.appendChild(endtDate);
           // eventListContainer.appendChild(eventDetails.getHtml())
           // localStorage.setItem('iD', element.id);
-          const  routeEvent = ()=>{
+          const routeEvent = () => {
             window.location.href = `/eventDetail?perticularEventid=${element.id}`;
           };
-            // const updateeEvent = document.getElementById('listevet');
           eventList.onclick = routeEvent;
         });
       });
     return eventListContainer;
-
-
   }
 };
 export default eventList;

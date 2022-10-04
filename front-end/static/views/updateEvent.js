@@ -14,7 +14,7 @@ const updateevent = {
     eventUpdateNametag.appendChild(eventUpdateNameTagName);
     inputeventUpdateContainer.appendChild(eventUpdateNametag);
 
-    let eventUpdateTxtInput = document.createElement("input");
+    const eventUpdateTxtInput = document.createElement("input");
     eventUpdateTxtInput.id = "eventInput";
     eventUpdateTxtInput.placeholder = "enter the event name";
     inputeventUpdateContainer.appendChild(eventUpdateTxtInput);
@@ -99,23 +99,23 @@ const updateevent = {
       const eventNm = document.getElementById("eventInput").value;
       const eventdeccription =
         document.getElementById("eventdetailinput").value;
-      let startdt = document.getElementById("strt").value;
+      const startdt = document.getElementById("strt").value;
       const isoStartDate = new Date(startdt).toISOString().slice(0, -5) + "Z";
-      let enddt = document.getElementById("end").value;
+      const enddt = document.getElementById("end").value;
       const enddateiso = new Date(enddt).toISOString().slice(0, -5) + "Z";
       const cpcty = document.getElementById("cpcty").value;
 
       const body = {
         event: {
           name: {
-            html: eventNm,
+            html: eventNm
           },
           description: {
-            html: eventdeccription,
+            html: eventdeccription
           },
           start: {
             timezone: "UTC",
-            utc: isoStartDate,
+            utc: isoStartDate
           },
           end: {
             timezone: "UTC",
@@ -123,7 +123,7 @@ const updateevent = {
           },
           currency: "USD",
           capacity: cpcty
-        },
+        }
       };
 
       fetch(url, {
