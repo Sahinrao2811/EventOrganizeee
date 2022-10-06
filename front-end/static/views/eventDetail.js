@@ -4,9 +4,7 @@ const eventDetail = {
   getHtml: function () {
     const eventDetailContainer = document.createElement("div");
     eventDetailContainer.id = "eventdetailcontainer";
-    // eventDetailContainer.appendChild(appheader.getHtml());
-
-
+    eventDetailContainer.appendChild(appheader.getHtml());
 
     eventDetailContainer.innerHTML = "";
     const eventDetailtag = document.createElement("p");
@@ -110,7 +108,7 @@ const eventDetail = {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       }
     })
       .then((response) => response.json())

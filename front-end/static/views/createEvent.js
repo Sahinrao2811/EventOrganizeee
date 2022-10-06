@@ -4,7 +4,6 @@ const createEvent = {
       const token = localStorage.getItem("token");
       const queryString = window.location.search;
       console.log(queryString);
-      // const usrid = `1169399775153`;
 
       const urlParams = new URLSearchParams(queryString);
       const usrid = urlParams.get("useid");
@@ -14,13 +13,11 @@ const createEvent = {
       const eventdeccription = document.getElementById("eventdetailinput").value;
 
       const startdt = document.getElementById("strt").value;
-      // startdt = `2022-10-12T02:00:00Z`;
 
       const isoStartDate = new Date(startdt).toISOString().slice(0, -5) + "Z";
       console.log("srt", isoStartDate);
 
       const enddt = document.getElementById("end").value;
-      //  enddt = `2022-10-13T02:00:00Z`;
       const enddateiso = new Date(enddt).toISOString().slice(0, -5) + "Z";
       console.log("end", enddateiso);
 
@@ -37,12 +34,10 @@ const createEvent = {
           start: {
             timezone: "UTC",
             utc: isoStartDate
-            // utc: new Date(startdt).toISOString()
           },
           end: {
             timezone: "UTC",
             utc: enddateiso
-            // utc: new Date(enddt),
           },
           currency: "USD",
           organizer_id: "",

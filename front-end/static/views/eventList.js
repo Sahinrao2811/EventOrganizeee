@@ -43,8 +43,6 @@ const eventList = {
 
           eventList.appendChild(startDate);
           eventList.appendChild(endtDate);
-          // eventListContainer.appendChild(eventDetails.getHtml())
-          // localStorage.setItem('iD', element.id);
           const routeEvent = () => {
             window.location.href = `/eventDetail?perticularEventid=${element.id}`;
           };

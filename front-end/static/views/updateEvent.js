@@ -133,7 +133,7 @@ const updateevent = {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(body)
-        // body : body,
+
       })
         .then((response) => response.json())
         .then((data) => {
@@ -147,7 +147,6 @@ const updateevent = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }
-      // body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .then((data) => {

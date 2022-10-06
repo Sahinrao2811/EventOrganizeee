@@ -23,13 +23,11 @@ const dashboard = {
     dashboardContainer.appendChild(creatBTn);
 
     dashboardContainer.appendChild(createEvent.gethtml());
-    // dashboardContainer.appendChild(eventListContainer);
     dashboardContainer.appendChild(eventList.getHtml());
 
     const allEventList = () => {
       document.getElementById("createcontainer").style.display = "none";
       document.getElementById("eventContainer").style.display = "block";
-      // document.getElementById('eventListContainer').style.display = 'none';
     };
     // create event is call hare
     const createeventFun = () => {
