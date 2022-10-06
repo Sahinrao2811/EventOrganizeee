@@ -1,7 +1,7 @@
 const updateevent = {
   getHtml: function () {
     const updateContainer = document.createElement("div");
-    // updateContainer.id = "eventUpDateContainer"
+    updateContainer.id = "eventdetailcontainer";
     const newEvenUpdatetTag = document.createElement("p");
     const neweventUpdateTxt = document.createTextNode("Update Event");
     newEvenUpdatetTag.appendChild(neweventUpdateTxt);
@@ -79,7 +79,7 @@ const updateevent = {
     capacityUpdateContainer.appendChild(capacityUpdateinput);
 
     const updatbtn = document.createElement("button");
-    const updatbtnName = document.createTextNode("Update");
+    const updatbtnName = document.createTextNode("Save Changes");
     updatbtn.appendChild(updatbtnName);
     updateContainer.appendChild(updatbtn);
 

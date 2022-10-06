@@ -1,7 +1,13 @@
+import appheader from "./appheader.js";
+
 const eventDetail = {
   getHtml: function () {
     const eventDetailContainer = document.createElement("div");
     eventDetailContainer.id = "eventdetailcontainer";
+    // eventDetailContainer.appendChild(appheader.getHtml());
+
+
+
     eventDetailContainer.innerHTML = "";
     const eventDetailtag = document.createElement("p");
     const eventDetailTagName = document.createTextNode("Event Details");
