@@ -131,7 +131,6 @@ const updateevent = {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
         });
     };
 
@@ -144,12 +143,8 @@ const updateevent = {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.name.text);
-        console.log(data);
         eventUpdateTxtInput.value = data.name.text;
-        console.log(eventUpdateTxtInput);
         eventUpdateDetailInput.value = data.description.text;
-        console.log("sdfsdf", eventUpdateDetailInput);
         startUpdateDateinput.value = data.start.local.split("T")[0];
         endUpdateDateinput.value = data.start.local.split("T")[0];
         capacityUpdateinput.value = data.capacity;

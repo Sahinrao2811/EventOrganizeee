@@ -9,5 +9,4 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(process.env.PORT || 7000, () => {
-  console.log("server is running");
 });

@@ -7,16 +7,7 @@ body{
     height: 100%;
     background: #c4b3bb;
 }
-#app{
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    width: 100%;
-    margin: 0 auto; */
-}
 .container{
-    /* height: 35 */
     position: relative;
     display: flex;
     align-items: center;
@@ -44,10 +35,8 @@ body{
    margin-bottom: 10px;
 }
 #header {
-    /* position: absolute; */
     height: 50px;
     width: 80%;
-    /* border: 1px solid; */
     top:25px;
     display: flex;
     justify-content: space-between;
@@ -55,18 +44,12 @@ body{
     padding: 5px;
 }
 #eventContainer{
-    /* position: relative; */
     margin-top: 80px;
     padding: 20px;
     width: 80%;
-    /* height: 30px; */
     border: 1px solid;
-    /* margin: 0 auto; */
-    /* margin-top: 20px; */
     display: flex;
     flex-direction: column;
-    /* flex-grow: 1; */
-    /* padding: 10px; */
 }
 #listevent{
     height: 100px;
@@ -87,10 +70,6 @@ body{
 
 }
 #commonInput{
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px; */
     margin-top: 20px;
     width: 80%;
     display: flex;
