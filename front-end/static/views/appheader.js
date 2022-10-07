@@ -4,11 +4,8 @@ const appheader = {
 
     const queryString = window.location.search;
 
-    console.log(queryString);
-
     const urlParams = new URLSearchParams(queryString);
     const usrid = urlParams.get("useid");
-    console.log(usrid);
 
     const token = localStorage.getItem("token");
     const url = `https://www.eventbriteapi.com/v3/users/${usrid}/`;
@@ -20,7 +17,6 @@ const appheader = {
         "Content-Type": "application/json"
       }
     }).then(response => response.json()).then((data) => {
-      console.log(data);
       infoData = data;
     });
 
@@ -43,7 +39,7 @@ const appheader = {
     appHeader.appendChild(userInfo);
 
     const userInfopra = document.createElement("p");
-    const userInfoTxt = document.createTextNode(`${infoData.firsname ? infoData.firsname : "ram"}`);
+    const userInfoTxt = document.createTextNode(`${infoData.firstname ? infoData.firstname : "ram"}`);
     userInfopra.id = "username";
 
     userInfopra.appendChild(userInfoTxt);

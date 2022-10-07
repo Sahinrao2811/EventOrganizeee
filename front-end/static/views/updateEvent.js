@@ -78,24 +78,18 @@ const updateevent = {
     capacityUpdateinput.placeholder = "capacity";
     capacityUpdateContainer.appendChild(capacityUpdateinput);
 
-    const updatbtn = document.createElement("button");
-    const updatbtnName = document.createTextNode("Save Changes");
-    updatbtn.appendChild(updatbtnName);
-    updateContainer.appendChild(updatbtn);
+    const updatebtn = document.createElement("button");
+    const updatebtnName = document.createTextNode("Save Changes");
+    updatebtn.appendChild(updatebtnName);
+    updateContainer.appendChild(updatebtn);
 
     const queryString = window.location.search;
-
-    console.log(queryString);
-
     const urlParams = new URLSearchParams(queryString);
     const perticularEventid = urlParams.get("perticularEvent");
-    console.log(perticularEventid);
-
     const token = localStorage.getItem("token");
-    console.log(token);
     const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
 
-    const updateRsponse = () => {
+    const updateResponse = () => {
       const eventNm = document.getElementById("eventInput").value;
       const eventdeccription =
         document.getElementById("eventdetailinput").value;
@@ -161,7 +155,7 @@ const updateevent = {
         capacityUpdateinput.value = data.capacity;
       });
 
-    updatbtn.onclick = updateRsponse;
+    updatebtn.onclick = updateResponse;
 
     return updateContainer;
   }

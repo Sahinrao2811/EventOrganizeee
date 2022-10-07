@@ -3,24 +3,16 @@ const createEvent = {
     const createEventFun = () => {
       const token = localStorage.getItem("token");
       const queryString = window.location.search;
-      console.log(queryString);
-
       const urlParams = new URLSearchParams(queryString);
       const usrid = urlParams.get("useid");
 
       const eventNm = document.getElementById("eventInput").value;
-
       const eventdeccription = document.getElementById("eventdetailinput").value;
 
       const startdt = document.getElementById("strt").value;
-
       const isoStartDate = new Date(startdt).toISOString().slice(0, -5) + "Z";
-      console.log("srt", isoStartDate);
-
       const enddt = document.getElementById("end").value;
       const enddateiso = new Date(enddt).toISOString().slice(0, -5) + "Z";
-      console.log("end", enddateiso);
-
       const cpcty = document.getElementById("cpcty").value;
 
       const body = {
@@ -57,9 +49,6 @@ const createEvent = {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.error_description);
-          console.log(body.start);
-          console.log(data);
         });
     };
 

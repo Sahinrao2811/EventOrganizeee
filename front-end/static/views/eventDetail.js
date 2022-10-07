@@ -19,27 +19,27 @@ const eventDetail = {
     eventNamet.appendChild(eventNameTName);
     eventNameContainer.appendChild(eventNamet);
 
-    const eventDescriptationTag = document.createElement("p");
-    const eventDescriptationTagName = document.createTextNode(
+    const eventDescriptionTag = document.createElement("p");
+    const eventDescriptionTagName = document.createTextNode(
       "this is description of  event "
     );
-    eventDescriptationTag.appendChild(eventDescriptationTagName);
-    eventNameContainer.appendChild(eventDescriptationTag);
+    eventDescriptionTag.appendChild(eventDescriptionTagName);
+    eventNameContainer.appendChild(eventDescriptionTag);
     eventDetailContainer.appendChild(eventNameContainer);
 
-    const eventDecriptionContainer = document.createElement("div");
-    eventDecriptionContainer.id = "commonInput";
+    const eventDescriptionContainer = document.createElement("div");
+    eventDescriptionContainer.id = "commonInput";
     const eventDecriptaiontagn = document.createElement("p");
     const eventDecriptaiontagname = document.createTextNode("Event Detail");
     eventDecriptaiontagn.appendChild(eventDecriptaiontagname);
-    eventDecriptionContainer.appendChild(eventDecriptaiontagn);
-    eventDetailContainer.appendChild(eventDecriptionContainer);
+    eventDescriptionContainer.appendChild(eventDecriptaiontagn);
+    eventDetailContainer.appendChild(eventDescriptionContainer);
 
     const eventDrciptationresulttg = document.createElement("p");
     const eventDrciptationresulttgname =
       document.createTextNode("decripatation");
     eventDrciptationresulttg.appendChild(eventDrciptationresulttgname);
-    eventDecriptionContainer.appendChild(eventDrciptationresulttg);
+    eventDescriptionContainer.appendChild(eventDrciptationresulttg);
 
     const startAndresultContainer = document.createElement("p");
     startAndresultContainer.id = "commonInput";
@@ -82,26 +82,18 @@ const eventDetail = {
     capacityDetailResulttag.appendChild(capacityDetailResulttagName);
     capacityDetailContainer.appendChild(capacityDetailResulttag);
     eventDetailContainer.appendChild(capacityDetailContainer);
-
     const updateAndDeleteContainer = document.createElement("div");
 
     const updatebtn = document.createElement("button");
     const updatebtnName = document.createTextNode("Update");
     updatebtn.appendChild(updatebtnName);
     updateAndDeleteContainer.appendChild(updatebtn);
-
     eventDetailContainer.appendChild(updateAndDeleteContainer);
 
     const queryString = window.location.search;
-
-    console.log(queryString);
-
     const urlParams = new URLSearchParams(queryString);
     const perticularEventid = urlParams.get("perticularEventid");
-    console.log(perticularEventid);
-
     const token = localStorage.getItem("token");
-    console.log(token);
 
     const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
     fetch(url, {
@@ -113,9 +105,7 @@ const eventDetail = {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.name.text);
-        eventDescriptationTag.innerHTML = `${data.name.text}`;
+        eventDescriptionTag.innerHTML = `${data.name.text}`;
         eventDrciptationresulttg.innerHTML = `${data.description.text}`;
         startDateTagResult.innerHTML = `${data.start.local}`;
         endDateTagResult.innerHTML = `${data.end.local}`;

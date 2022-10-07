@@ -15,12 +15,12 @@ const dashboard = {
     allEventlistbtn.appendChild(allEventlistbtnTag);
     dashboardContainer.appendChild(allEventlistbtn);
 
-    const creatBTn = document.createElement("button");
+    const createBTn = document.createElement("button");
     const createbtnTag = document.createElement("p");
     const createbtnTxt = document.createTextNode("Add Event");
     createbtnTag.appendChild(createbtnTxt);
-    creatBTn.appendChild(createbtnTag);
-    dashboardContainer.appendChild(creatBTn);
+    createBTn.appendChild(createbtnTag);
+    dashboardContainer.appendChild(createBTn);
 
     dashboardContainer.appendChild(createEvent.gethtml());
     dashboardContainer.appendChild(eventList.getHtml());
@@ -30,12 +30,12 @@ const dashboard = {
       document.getElementById("eventContainer").style.display = "block";
     };
     // create event is call hare
-    const createeventFun = () => {
+    const createEventFun = () => {
       document.getElementById("createcontainer").style.display = "block";
       document.getElementById("eventContainer").style.display = "none";
     };
 
-    creatBTn.onclick = createeventFun;
+    createBTn.onclick = createEventFun;
     allEventlistbtn.onclick = allEventList;
 
     return dashboardContainer;

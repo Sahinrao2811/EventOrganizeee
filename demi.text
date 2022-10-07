@@ -1,0 +1,9 @@
+user enter private token 
+we store the token in the localstorage if resoponse getting successfull
+
+if the url is render to the login  then we have to check the localstorage 
+
+
+if the localstorage have already token then we will have to redirect the dashboard
+
+ else  the localstorage have not token then redirect to  the login 

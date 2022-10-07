@@ -1,8 +1,7 @@
 import login from "./views/login.js";
 import dashboard from "./views/dashboard.js";
 import eventDetail from "./views/eventDetail.js";
-import updateEvent from "./views/updateEvent.js"
-
+import updateEvent from "./views/updateEvent.js";
 
 const navigateTo = url => {
   history.pushState(null, null, url);
@@ -12,8 +11,8 @@ const router = async () => {
   const routes = [
     { path: "/", view: login },
     { path: "/dashboard", view: dashboard },
-    { path: "/eventDetail", view : eventDetail},
-    { path: "/updateEvent", view: updateEvent}
+    { path: "/eventDetail", view: eventDetail },
+    { path: "/updateEvent", view: updateEvent }
   ];
 
   const potentioalMatches = routes.map((route) => {
@@ -23,13 +22,24 @@ const router = async () => {
     };
   });
 
-  let match = potentioalMatches.find(potentioalMatches => potentioalMatches.isMatch);
-  if (!match) {
-    match = {
-      route: routes[0],
-      isMatch: true
-    };
-  }
+  const match = potentioalMatches.find(potentioalMatches => potentioalMatches.isMatch);
+
+  const usrid = localStorage.getItem("orgId");
+  // const token = localStorage.getItem("token");
+
+  if (match.route.path === "/" && localStorage.getItem("token")) {
+    window.location.href = `/dashboard?usrid=${usrid}`;
+  };
+  // else {
+  //   window.location.href = `/?token=${token}`;
+  // }
+
+  // if (!match) {
+  //   match = {
+  //     route: routes[0],
+  //     isMatch: true
+  //   };
+  // }
 
   const view = match.route.view;
   const appContainer = document.getElementById("app");

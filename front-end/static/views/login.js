@@ -2,7 +2,6 @@ const login = {
   getHtml: function () {
     const loginContainer = document.createElement("div");
     loginContainer.className = "container";
-
     const loginLbl = document.createElement("p");
     const loginLbltxt = document.createTextNode("Login with Token");
     const lblTag = loginLbl.appendChild(loginLbltxt);
@@ -24,8 +23,6 @@ const login = {
 
     function loginfun () {
       const token = document.getElementById("inputToken").value;
-      console.log(token);
-
       const url = "https://www.eventbriteapi.com/v3/users/me/organizations/";
       fetch(url, {
         method: "get",
@@ -34,9 +31,8 @@ const login = {
           "Content-Type": "application/json"
         }
       }).then(response => response.json()).then((data) => {
-        console.log(data);
-
         localStorage.setItem("token", token);
+        localStorage.setItem("orgId", data.organizations[0].id);
         window.location.href = `/dashboard?useid=${data.organizations[0].id}`;
       });
     };

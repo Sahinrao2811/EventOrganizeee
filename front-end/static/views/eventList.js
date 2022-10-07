@@ -6,10 +6,9 @@ const eventList = {
     const token = localStorage.getItem("token");
     const queryString = window.location.search;
 
-    console.log(queryString);
-
     const urlParams = new URLSearchParams(queryString);
     const usrid = urlParams.get("useid");
+
     const url = `https://www.eventbriteapi.com/v3/organizations/${usrid}/events/`;
     fetch(url, {
       method: "get",
@@ -20,7 +19,6 @@ const eventList = {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         data.events.forEach((element) => {
           const eventList = document.createElement("div");
           eventList.id = "listevent";
