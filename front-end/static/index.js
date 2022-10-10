@@ -8,6 +8,8 @@ const navigateTo = url => {
 };
 
 const router = async () => {
+  const usrid = localStorage.getItem("orgId");
+  const token = localStorage.getItem("token");
   const routes = [
     { path: "/", view: login },
     { path: "/dashboard", view: dashboard },
@@ -15,31 +17,41 @@ const router = async () => {
     { path: "/updateEvent", view: updateEvent }
   ];
 
-  const potentioalMatches = routes.map((route) => {
+  const potentialMatches = routes.map((route) => {
     return {
       route,
       isMatch: location.pathname === route.path
     };
   });
 
-  const match = potentioalMatches.find(potentioalMatches => potentioalMatches.isMatch);
-
-  const usrid = localStorage.getItem("orgId");
-  // const token = localStorage.getItem("token");
-
-  if (match.route.path === "/" && localStorage.getItem("token")) {
-    window.location.href = `/dashboard?usrid=${usrid}`;
-  };
-  // else {
-  //   window.location.href = `/?token=${token}`;
+  // const loginCheck = potentialMatches.find(potentialMatches => potentialMatches[0].isMatch);
+  // console.log("loginCheck", loginCheck);
+  // if (loginCheck && token) {
+  //   window.location.href = `/dashboard?usrid=${usrid}`;
   // }
 
-  // if (!match) {
-  //   match = {
-  //     route: routes[0],
-  //     isMatch: true
-  //   };
+  let match = potentialMatches.find(potentialMatches => potentialMatches.isMatch);
+
+  // if (match.route.path === "/" && token) {
+  //   window.location.href = `/dashboard?usrid=${usrid}`;
   // }
+
+  if (!match) {
+    match = {
+      route: routes[0],
+      isMatch: true
+    };
+  } else if (match.route.path === "/" && token) {
+    match = {
+      route: routes[1],
+      //  window.location.href = `/dashboard?usrid=${usrid}`,
+      isMatch: false
+    };
+  }
+  console.log("render", match);
+  //  else {
+  //   window.location.href = `/dashboard?usrid=${usrid}`;
+  // };
 
   const view = match.route.view;
   const appContainer = document.getElementById("app");

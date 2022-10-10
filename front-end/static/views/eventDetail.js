@@ -1,4 +1,5 @@
 import appheader from "./appheader.js";
+import apiUrls from "./apiUrls.js";
 
 const eventDetail = {
   getHtml: function () {
@@ -95,8 +96,7 @@ const eventDetail = {
     const perticularEventid = urlParams.get("perticularEventid");
     const token = localStorage.getItem("token");
 
-    const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
-    fetch(url, {
+    fetch(apiUrls.eventDetailUrl, {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -1,16 +1,13 @@
+import apiUrls from "./apiUrls.js";
+
 const eventList = {
   getHtml: function () {
     const eventListContainer = document.createElement("div");
     eventListContainer.id = "eventContainer";
 
     const token = localStorage.getItem("token");
-    const queryString = window.location.search;
 
-    const urlParams = new URLSearchParams(queryString);
-    const usrid = urlParams.get("useid");
-
-    const url = `https://www.eventbriteapi.com/v3/organizations/${usrid}/events/`;
-    fetch(url, {
+    fetch(apiUrls.eventListUrl, {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,

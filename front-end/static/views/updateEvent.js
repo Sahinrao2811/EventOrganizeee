@@ -1,3 +1,5 @@
+import apiUrls from "./apiUrls.js";
+
 const updateevent = {
   getHtml: function () {
     const updateContainer = document.createElement("div");
@@ -83,11 +85,11 @@ const updateevent = {
     updatebtn.appendChild(updatebtnName);
     updateContainer.appendChild(updatebtn);
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const perticularEventid = urlParams.get("perticularEvent");
+    // const queryString = window.location.search;
+    // const urlParams = new URLSearchParams(queryString);
+    // const perticularEventid = urlParams.get("perticularEvent");
     const token = localStorage.getItem("token");
-    const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
+    // const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
 
     const updateResponse = () => {
       const eventNm = document.getElementById("eventInput").value;
@@ -120,7 +122,7 @@ const updateevent = {
         }
       };
 
-      fetch(url, {
+      fetch(apiUrls.updateDetailUrl, {
         method: "post",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -134,7 +136,7 @@ const updateevent = {
         });
     };
 
-    fetch(url, {
+    fetch(apiUrls.updateDetailUrl, {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -143,6 +145,7 @@ const updateevent = {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.name.text);
         eventUpdateTxtInput.value = data.name.text;
         eventUpdateDetailInput.value = data.description.text;
         startUpdateDateinput.value = data.start.local.split("T")[0];
