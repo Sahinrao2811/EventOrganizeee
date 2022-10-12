@@ -23,35 +23,37 @@ const login = {
     loginContainer.appendChild(submitBtn);
     return loginContainer;
 
-    function loginfun () {
+    async function loginfun () {
+      try {
+
       const token = document.getElementById("inputToken").value;
       console.log(apiUrls.loginUrl);
 
-      fetch(apiUrls.loginUrl, {
+      const response = await fetch(apiUrls.loginUrl, {
         method: "get",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("token", token);
-          localStorage.setItem("orgId", data.organizations[0].id);
-          window.location.href = `/dashboard?useid=${data.organizations[0].id}`;
-        });
+      const result = await response.json();
+      console.log(result);
 
-      //   fetch(apiUrls.loginUrl, {
-      //     method: "get",
-      //     headers: {
-      //       Authorization: `Bearer ${token}`,
-      //       "Content-Type": "application/json"
-      //     }
-      //   }).then(response => response.json()).then((data) => {
-      //     localStorage.setItem("token", token);
-      //     localStorage.setItem("orgId", data.organizations[0].id);
-      //     window.location.href = `/dashboard?useid=${data.organizations[0].id}`;
-      //   });
+      if(result.status_code === 401) {
+        const errObj =  JSON.stringify({err: result.error, err_desc: result.error_description})
+        throw new Error(errObj)
+      }
+       alert("Successfully login") ;
+       localStorage.setItem("token", token);
+       localStorage.setItem("orgId", result.organizations[0].id);
+       window.location.href = `/dashboard?orgId=${result.organizations[0].id}`;
+      } catch (error) {
+        const err = JSON.parse(error.message);
+        alert(err.err + ' : ' + err.err_desc);
+        
+      }
+      
+        
     }
   }
 };

@@ -24,17 +24,11 @@ const router = async () => {
     };
   });
 
-  // const loginCheck = potentialMatches.find(potentialMatches => potentialMatches[0].isMatch);
-  // console.log("loginCheck", loginCheck);
-  // if (loginCheck && token) {
-  //   window.location.href = `/dashboard?usrid=${usrid}`;
-  // }
+ 
 
   let match = potentialMatches.find(potentialMatches => potentialMatches.isMatch);
 
-  // if (match.route.path === "/" && token) {
-  //   window.location.href = `/dashboard?usrid=${usrid}`;
-  // }
+  
 
   if (!match) {
     match = {
@@ -44,14 +38,9 @@ const router = async () => {
   } else if (match.route.path === "/" && token) {
     match = {
       route: routes[1],
-      //  window.location.href = `/dashboard?usrid=${usrid}`,
       isMatch: false
     };
   }
-  console.log("render", match);
-  //  else {
-  //   window.location.href = `/dashboard?usrid=${usrid}`;
-  // };
 
   const view = match.route.view;
   const appContainer = document.getElementById("app");

@@ -105,15 +105,15 @@ const eventDetail = {
     })
       .then((response) => response.json())
       .then((data) => {
-        eventDescriptionTag.innerHTML = `${data.name.text}`;
-        eventDrciptationresulttg.innerHTML = `${data.description.text}`;
-        startDateTagResult.innerHTML = `${data.start.local}`;
-        endDateTagResult.innerHTML = `${data.end.local}`;
-        capacityDetailResulttag.innerHTML = `${data.capacity}`;
+        eventDescriptionTag.innerHTML = `${data?.name?.text}`;
+        eventDrciptationresulttg.innerHTML = `${data?.description?.text}`;
+        startDateTagResult.innerHTML = `${data?.start?.local}`;
+        endDateTagResult.innerHTML = `${data?.end?.local}`;
+        capacityDetailResulttag.innerHTML = `${data?.capacity}`;
       });
 
     const updateEventrute = () => {
-      window.location.href = `/updateEvent?perticularEvent=${perticularEventid}`;
+      window.location.href = `/updateEvent?perticularEventid=${perticularEventid}`;
     };
 
     updatebtn.onclick = updateEventrute;

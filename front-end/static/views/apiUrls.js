@@ -2,7 +2,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const orgID = localStorage.getItem("orgId");
 // const perticularEventid = urlParams.get("perticularEventid");
-const perticularEventid = urlParams.get("perticularEvent");
+const perticularEventid = urlParams.get("perticularEventid");
 
 const apiUrls = {
   loginUrl: "https://www.eventbriteapi.com/v3/users/me/organizations/",

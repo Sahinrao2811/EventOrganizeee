@@ -8,12 +8,12 @@ body{
     background: #c4b3bb;
 }
 .container{
-    position: relative;
+    /* position: relative; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    top: 20px;
+    /* top: 20px; */
     text-align: center;
     
     

@@ -22,15 +22,17 @@ const dashboard = {
     createBTn.appendChild(createbtnTag);
     dashboardContainer.appendChild(createBTn);
 
-    dashboardContainer.appendChild(createEvent.gethtml());
+    dashboardContainer.appendChild(createEvent.getHtml());
     dashboardContainer.appendChild(eventList.getHtml());
 
     const allEventList = () => {
+      console.log("ddddd");
       document.getElementById("createcontainer").style.display = "none";
       document.getElementById("eventContainer").style.display = "block";
     };
     // create event is call hare
     const createEventFun = () => {
+      console.log("sdas");
       document.getElementById("createcontainer").style.display = "block";
       document.getElementById("eventContainer").style.display = "none";
     };

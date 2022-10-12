@@ -1,10 +1,10 @@
 const createEvent = {
-  gethtml: function () {
+  getHtml: function () {
     const createEventFun = () => {
       const token = localStorage.getItem("token");
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const usrid = urlParams.get("useid");
+      const orgId = urlParams.get("orgId");
 
       const eventNm = document.getElementById("eventInput").value;
       const eventdeccription = document.getElementById("eventdetailinput").value;
@@ -37,7 +37,7 @@ const createEvent = {
         }
       };
 
-      const url = `https://www.eventbriteapi.com/v3/organizations/${usrid}/events/`;
+      const url = `https://www.eventbriteapi.com/v3/organizations/${orgId}/events/`;
       fetch(url, {
         method: "POST",
         headers: {

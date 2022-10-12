@@ -5,10 +5,10 @@ const appheader = {
     const queryString = window.location.search;
 
     const urlParams = new URLSearchParams(queryString);
-    const usrid = urlParams.get("useid");
+    const orgId = urlParams.get("orgId");
 
     const token = localStorage.getItem("token");
-    const url = `https://www.eventbriteapi.com/v3/users/${usrid}/`;
+    const url = `https://www.eventbriteapi.com/v3/users/${orgId}/`;
 
     fetch(url, {
       method: "get",
