@@ -122,7 +122,7 @@ const updateevent = {
         }
       };
 
-      fetch(apiUrls.updateDetailUrl, {
+      fetch(apiUrls.eventDetailUrl, {
         method: "post",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -146,11 +146,11 @@ const updateevent = {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.name.text);
-        eventUpdateTxtInput.value = data.name.text;
-        eventUpdateDetailInput.value = data.description.text;
-        startUpdateDateinput.value = data.start.local.split("T")[0];
-        endUpdateDateinput.value = data.start.local.split("T")[0];
-        capacityUpdateinput.value = data.capacity;
+        eventUpdateTxtInput.value = data?.name?.text;
+        eventUpdateDetailInput.value = data?.description?.text;
+        startUpdateDateinput.value = data?.start?.local.split("T")[0];
+        endUpdateDateinput.value = data?.start?.local.split("T")[0];
+        capacityUpdateinput.value = data?.capacity;
       });
 
     updatebtn.onclick = updateResponse;
