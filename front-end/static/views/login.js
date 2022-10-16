@@ -28,19 +28,18 @@ const login = {
     loginContainer.appendChild(submitBtn);
     return loginContainer;
 
-    async function loginfun () {
+    async function loginfun() {
       try {
+        const token = document.getElementById("inputToken").value;
+        console.log(apiUrls.loginUrl);
 
-      const token = document.getElementById("inputToken").value;
-      console.log(apiUrls.loginUrl);
-
-      const response = await fetch(apiUrls.loginUrl, {
-        method: "get",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        }
-      })
+        const response = await fetch(apiUrls.loginUrl, {
+          method: "get",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
       const result = await response.json();
       console.log(result);
 
@@ -53,13 +52,10 @@ const login = {
        window.location.replace("/dashboard");
       } catch (error) {
         const err = JSON.parse(error.message);
-        alert(err.err + ' : ' + err.err_desc);
-        
+        alert(err.err + " : " + err.err_desc);
       }
-      
-        
     }
-  }
+  },
 };
 
 export default login;
