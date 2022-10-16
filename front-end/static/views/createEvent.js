@@ -52,7 +52,7 @@ const createEvent = {
       })
         .then((response) => response.json())
         .then((data) => {
-      window.location.href= `/dashboard?orgId=${orgID}`
+      window.location.replace("/dashboard")
 
         });
     };

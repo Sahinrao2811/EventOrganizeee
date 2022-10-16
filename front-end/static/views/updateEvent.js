@@ -2,6 +2,8 @@ import apiUrls from "./apiUrls.js";
 
 const updateevent = {
   getHtml: function () {
+    const orgID = localStorage.getItem("orgId")
+
     const updateContainer = document.createElement("div");
     updateContainer.id = "eventdetailcontainer";
     const newEvenUpdatetTag = document.createElement("p");
@@ -85,11 +87,7 @@ const updateevent = {
     updatebtn.appendChild(updatebtnName);
     updateContainer.appendChild(updatebtn);
 
-    // const queryString = window.location.search;
-    // const urlParams = new URLSearchParams(queryString);
-    // const perticularEventid = urlParams.get("perticularEvent");
     const token = localStorage.getItem("token");
-    // const url = `https://www.eventbriteapi.com/v3/events/${perticularEventid}/`;
 
     const updateResponse = () => {
       const eventNm = document.getElementById("eventInput").value;
@@ -133,6 +131,7 @@ const updateevent = {
       })
         .then((response) => response.json())
         .then((data) => {
+      window.location.replace("/dashboard")
         });
     };
 
