@@ -1,6 +1,9 @@
 const createEvent = {
   getHtml: function () {
+    const orgID = localStorage.getItem("orgId")
+
     const createEventFun = () => {
+
       const token = localStorage.getItem("token");
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -49,6 +52,8 @@ const createEvent = {
       })
         .then((response) => response.json())
         .then((data) => {
+      window.location.replace("/dashboard")
+
         });
     };
 

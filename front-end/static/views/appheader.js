@@ -1,14 +1,11 @@
 const appheader = {
   getHtml: function () {
     let infoData = "";
+    const orgID = localStorage.getItem("orgId")
 
-    const queryString = window.location.search;
-
-    const urlParams = new URLSearchParams(queryString);
-    const orgId = urlParams.get("orgId");
 
     const token = localStorage.getItem("token");
-    const url = `https://www.eventbriteapi.com/v3/users/${orgId}/`;
+    const url = `https://www.eventbriteapi.com/v3/users/${orgID}/`;
 
     fetch(url, {
       method: "get",
@@ -39,7 +36,7 @@ const appheader = {
     appHeader.appendChild(userInfo);
 
     const userInfopra = document.createElement("p");
-    const userInfoTxt = document.createTextNode(`${infoData.firstname ? infoData.firstname : "ram"}`);
+    const userInfoTxt = document.createTextNode(`${infoData.firstname ? infoData.firstname : "Default User"}`);
     userInfopra.id = "username";
 
     userInfopra.appendChild(userInfoTxt);

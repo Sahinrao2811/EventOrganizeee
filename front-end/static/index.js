@@ -24,24 +24,14 @@ const router = async () => {
     };
   });
 
- 
-
   let match = potentialMatches.find(potentialMatches => potentialMatches.isMatch);
 
-  
-
-  if (!match) {
+  if (!match || !token || match.route.path === "/") {
     match = {
       route: routes[0],
       isMatch: true
     };
-  } else if (match.route.path === "/" && token) {
-    match = {
-      route: routes[1],
-      isMatch: false
-    };
-  }
-
+  } 
   const view = match.route.view;
   const appContainer = document.getElementById("app");
   appContainer.appendChild(view.getHtml());

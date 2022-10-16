@@ -2,6 +2,11 @@ import apiUrls from "./apiUrls.js";
 
 const login = {
   getHtml: function () {
+    const token = localStorage.getItem("token");
+    
+    // if (token){
+    //   window.location.replace = "/dashboard"
+    // }
     const loginContainer = document.createElement("div");
     loginContainer.className = "container";
     const loginLbl = document.createElement("p");
@@ -35,20 +40,16 @@ const login = {
             "Content-Type": "application/json",
           },
         });
-        const result = await response.json();
-        console.log(result);
+      const result = await response.json();
+      console.log(result);
 
-        if (result.status_code === 401) {
-          const errObj = JSON.stringify({
-            err: result.error,
-            err_desc: result.error_description
-          });
-          throw new Error(errObj);
-        }
-        alert("Successfully login");
-        localStorage.setItem("token", token);
-        localStorage.setItem("orgId", result.organizations[0].id);
-        window.location.href = `/dashboard?orgId=${result.organizations[0].id}`;
+      if(result.status_code === 401) {
+        const errObj =  JSON.stringify({err: result.error, err_desc: result.error_description})
+        throw new Error(errObj)
+      }
+       localStorage.setItem("token", token);
+       localStorage.setItem("orgId", result.organizations[0].id);
+       window.location.replace("/dashboard");
       } catch (error) {
         const err = JSON.parse(error.message);
         alert(err.err + " : " + err.err_desc);
