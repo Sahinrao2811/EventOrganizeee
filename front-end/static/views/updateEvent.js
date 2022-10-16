@@ -120,7 +120,7 @@ const updateevent = {
         }
       };
 
-      fetch(apiUrls.updateDetailUrl, {
+      fetch(apiUrls.eventDetailUrl, {
         method: "post",
         headers: {
           Authorization: `Bearer ${token}`,

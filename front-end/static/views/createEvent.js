@@ -1,3 +1,4 @@
+import apiUrls from "./apiUrls.js";
 const createEvent = {
   getHtml: function () {
     const orgID = localStorage.getItem("orgId")
@@ -40,8 +41,8 @@ const createEvent = {
         }
       };
 
-      const url = `https://www.eventbriteapi.com/v3/organizations/${orgId}/events/`;
-      fetch(url, {
+      // const url = `https://www.eventbriteapi.com/v3/organizations/${orgId}/events/`;
+      fetch(apiUrls.createEventUrl, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

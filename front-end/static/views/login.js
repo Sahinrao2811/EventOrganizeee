@@ -4,9 +4,9 @@ const login = {
   getHtml: function () {
     const token = localStorage.getItem("token");
     
-    // if (token){
-    //   window.location.replace = "/dashboard"
-    // }
+    if (token){
+      window.location.replace("/dashboard");
+    }
     const loginContainer = document.createElement("div");
     loginContainer.className = "container";
     const loginLbl = document.createElement("p");
