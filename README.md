@@ -15,16 +15,29 @@
 
 
 ### Installation
-1: git clone: git@github.com:Sahinrao2811/EventOrganizeee.git
+Get a clone of application from [Here](git@github.com:sachinrao-dev/EventOrganizeee.git)
 
-move to the folder
-...........
-cd EventOrganizee
+- Start the server
+### `node app.js`
 
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The page will reload when you make changes. You may also see any lint errors in the console.
 
-install dependencies:
-..........
-npm install
+## Initial View of Application
+![loginScreen](front-end\assets\loginscreen.png)
+
+## filled token and after clicked the submit button 
+![Dashboard](front-end\assets\dashboardEvent.png)
+
+## after clicked particular event
+![Screenshot](front-end\assets\perticularvent.png)
+
+## after clicked Update button
+![Screenshot](front-end\assets\eventUpdate.png)
+
+## after clicked Add event button
+![Screenshot](front-end\assets\eventForm.png)
+
 
 
 
