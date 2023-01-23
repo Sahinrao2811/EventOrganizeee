@@ -37,7 +37,7 @@ The page will reload when you make changes. You may also see any lint errors in 
 
 ## after clicked Add event button
 ![Screenshot](front-end\assets\eventForm.png)
-
+![Alt text](front-end/assets/dashboardEvent.png)
 
 
 
