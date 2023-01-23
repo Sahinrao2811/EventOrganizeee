@@ -24,23 +24,16 @@ Runs the app in the development mode. Open [http://localhost:3000](http://localh
 The page will reload when you make changes. You may also see any lint errors in the console.
 
 ## Initial View of Application
-![loginScreen](front-end\assets\loginscreen.png)
+![loginScreen](front-end/assets/loginscreen.png)
 
 ## filled token and after clicked the submit button 
-![Dashboard](front-end\assets\dashboardEvent.png)
+![Event list](front-end/assets/dashboardEvent.png)
 
 ## after clicked particular event
-![Screenshot](front-end\assets\perticularvent.png)
+![single Even](front-end/assets/perticularvent.png)
 
 ## after clicked Update button
-![Screenshot](front-end\assets\eventUpdate.png)
+![Event update form](front-end/assets/eventUpdate.png)
 
 ## after clicked Add event button
-![Screenshot](front-end\assets\eventForm.png)
-![Alt text](front-end/assets/dashboardEvent.png)
-
-
-
-execute the project
-..........
-node server.js
+![Add event form](front-end/assets/eventForm.png)
